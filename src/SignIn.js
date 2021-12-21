@@ -67,7 +67,7 @@ const SignIn = ({}) => {
 
         console.log(data.email);
         axios
-        .post("http://localhost:5000/api/usuario/validar", {
+        .post("/api/usuario/validar", {
             mail:data.email,
             pass:data.password
         })
