@@ -79,8 +79,8 @@ const SignIn = ({}) => {
 
 
                 localStorage.setItem('TOKEN_APP_TALLER',response.data.token)
-            
-          
+                localStorage.setItem('ESTA_ACTIVO', response.data.activo)
+                          
                 window.location='/menu'
         
               }

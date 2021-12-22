@@ -41,12 +41,30 @@ function a11yProps(index) {
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
+/*
+function getActivo(){
+    try {
+        const token = localStorage.getItem('TOKEN_APP_TALLER');
+        const activo = localStorage.getItem('ESTA_ACTIVO'); // revisa si el campo esta activo
+        if (token == null) {
+            window.location = '/login';
+        }
+        if (activo == false){
+            alert(token)
+            localStorage.removeItem('TOKEN_APP_TALLER');
+            window.location = '/login';
+        }
+    } catch (error) {
+       alert(error)
+    }
+}
+*/
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
-    },
+    }
 }));
 
 export default function Menu() {
@@ -55,7 +73,18 @@ export default function Menu() {
 
     useEffect(() => {
         const token = localStorage.getItem('TOKEN_APP_TALLER');
-        if (token == null) {
+        const activo = localStorage.getItem('ESTA_ACTIVO'); // revisa si el campo esta activo
+        //alert(token)
+        //alert(activo)
+        //console.log(activo)
+        /*
+        if (!token) {
+            window.location = '/login';
+        }
+        */
+        if (activo === 'false'){
+            localStorage.removeItem('TOKEN_APP_TALLER');
+            alert(token)
             window.location = '/';
         }
     }, []);
