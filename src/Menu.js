@@ -72,20 +72,15 @@ export default function Menu() {
     const [value, setValue] = React.useState(0);
 
     useEffect(() => {
-        const token = localStorage.getItem('TOKEN_APP_TALLER');
-        const activo = localStorage.getItem('ESTA_ACTIVO'); // revisa si el campo esta activo
-        //alert(token)
-        //alert(activo)
-        //console.log(activo)
-        /*
-        if (!token) {
-            window.location = '/login';
+        const token = localStorage.getItem('TOKEN_APP_TALLER'); // token almacenado localmente
+        const activo = localStorage.getItem('ESTA_ACTIVO'); // se almacena el campo de si esta activo o no
+
+        if (!token || token == null || token == undefined) { // Consulta si el token es invalido, no esta definidido o es nulo
+            window.location = '/login'; // redirecciona a /login
         }
-        */
-        if (activo === 'false'){
-            localStorage.removeItem('TOKEN_APP_TALLER');
-            alert(token)
-            window.location = '/';
+        if (activo === 'false'){ // compara el contenido de la constante activo, que fue guardado en la linea 76 como item
+            localStorage.removeItem('TOKEN_APP_TALLER'); // Remueve el token ya que el campo activo es false, que quiere decir que no esta activo
+            window.location = '/'; // Redirecciona a la página inicial
         }
     }, []);
 

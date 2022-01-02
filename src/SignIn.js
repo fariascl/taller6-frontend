@@ -78,10 +78,10 @@ const SignIn = ({}) => {
               if(response.data.mensaje=='correcto'){
 
 
-                localStorage.setItem('TOKEN_APP_TALLER',response.data.token)
-                localStorage.setItem('ESTA_ACTIVO', response.data.activo)
-                          
-                window.location='/menu'
+                localStorage.setItem('TOKEN_APP_TALLER',response.data.token) // se guarda el campo token como un item en el almacenamiento local
+                localStorage.setItem('ESTA_ACTIVO', response.data.activo) // Se guarda el campo activo que recibe de la consulta a la api en un item en el almacenamiento local
+
+                window.location='/menu' // Redirecciona a menu
         
               }
             

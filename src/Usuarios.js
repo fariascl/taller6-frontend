@@ -80,7 +80,8 @@ const Usuarios= ()=>{
       }}
       columns={[
         { name: "Id", field: "_id" },
-        { name: "mail", field: "mail" }
+        { name: "mail", field: "mail" },
+        { name: "activo", field: "activo"}
       ]}
       data={data}
     />
